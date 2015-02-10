@@ -33,7 +33,7 @@ class LogStash::Filters::GeoHashCid < LogStash::Filters::Base
   def register
     # This filter needs to keep state.
     if @lcg_data.nil?
-      lcg_file = ::File.join(::File.expand_path("../../../vendor/", ::File.dirname(__file__)), "lcg.json")
+      lcg_file = ::File.join(::File.expand_path("../../../vendor/", ::File.dirname(__FILE__)), "lcg.json")
       @lcg_data = JSON.parse(lcg_file)
       @average_time = 0
     end
