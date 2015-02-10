@@ -37,7 +37,7 @@ class LogStash::Filters::GeoHashCid < LogStash::Filters::Base
       if !File.exists?(lcg_file)
         raise "Couldn't find the lcg.json (I looked for '#{lcg_file}')"
       end
-      @lcg_data = JSON.load(lcg_file)
+      @lcg_data = JSON.parse(File.read(lcg_file))
       @average_time = 0
     end
   end # def register
