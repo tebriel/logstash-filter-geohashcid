@@ -34,7 +34,7 @@ class LogStash::Filters::GeoHashCid < LogStash::Filters::Base
     # This filter needs to keep state.
     if @lcg_data.nil?
       lcg_file = ::File.join(::File.expand_path("../../../vendor/", ::File.dirname(__FILE__)), "lcg.json")
-      if !File.exists(lcg_file)
+      if !File.exists?(lcg_file)
         raise "Couldn't find the lcg.json (I looked for '#{lcg_file}'"
       end
       @lcg_data = JSON.parse(lcg_file)
